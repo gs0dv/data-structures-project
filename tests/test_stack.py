@@ -18,3 +18,10 @@ class TestStack(unittest.TestCase):
 
         with self.assertRaises(Exception):
             print(stack.top.next_node.next_node.data)
+
+    def test_pop(self):
+        stack = Stack()
+        stack.push('data1')
+        data = stack.pop()
+        assert stack.top is None
+        assert data == 'data1'
