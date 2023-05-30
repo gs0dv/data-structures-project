@@ -14,9 +14,18 @@ class Node:
 class Stack:
     """Класс для стека"""
 
+    items = []
+
     def __init__(self):
         """Конструктор класса Stack"""
         self.top = None
+
+    def __str__(self):
+        """Магический метод для строкового представления объекта"""
+        if not Stack.items:
+            return ""
+        else:
+            return "\n".join(Stack.items)
 
     def push(self, data):
         """
@@ -24,6 +33,7 @@ class Stack:
 
         :param data: данные, которые будут добавлены на вершину стека
         """
+        Stack.items.append(data)
         self.top = Node(data, self.top)
 
     def pop(self):
